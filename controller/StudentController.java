@@ -40,9 +40,19 @@ public class StudentController {
 
     public void addStudent() {
         //1.键盘接收学生信息
+        StudentService studentService=new StudentService();
         Scanner sc=new Scanner(System.in);
-        System.out.println("请输入学生姓名");
-        String name=sc.next();
+        String name=null;
+        while(true){
+            System.out.println("请输入学生姓名");
+            name=sc.next();
+            boolean flag=studentService.isExists(name);
+            if(flag==false){
+                break;
+            }else{
+                System.out.println("学号已经被占用，请重新输入");
+            }
+        }
         System.out.println("请输入学生年龄");
         String age=sc.next();
         System.out.println("请输入学生生日");
@@ -53,7 +63,6 @@ public class StudentController {
         student.setAge(age);
         student.setBirthday(birthday);
         //3。将学生对象，传递给StudentService中的方法addStudent();
-        StudentService studentService=new StudentService();
         boolean result=studentService.addStudent(student);
         //4.根据返回的boolean类型返回值，在控制台打印输出成功/失败
         if(result==true){
