@@ -1,5 +1,8 @@
 package com.itheima.edu.info.manager.entry;
 
+import com.itheima.edu.info.manager.controller.StudentController;
+import com.itheima.edu.info.manager.domain.Student;
+
 import java.util.Scanner;
 
 public class InfoManagerEntry {
@@ -15,7 +18,10 @@ public class InfoManagerEntry {
             //匹配选项
             switch (choice) {
                 case "1":
-                    System.out.println("学生管理");
+                    /*System.out.println("学生管理");*/
+                    //开启学生管理系统的代码逻辑
+                    StudentController studentController=new StudentController();
+                    studentController.start();
                     break;
                 case "2":
                     System.out.println("老师管理");
