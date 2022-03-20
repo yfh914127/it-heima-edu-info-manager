@@ -50,7 +50,7 @@ public class StudentController {
             if(flag==false){
                 break;
             }else{
-                System.out.println("学号已经被占用，请重新输入");
+                System.out.println("姓名已经被占用，请重新输入");
             }
         }
         System.out.println("请输入学生年龄");
