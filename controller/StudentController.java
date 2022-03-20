@@ -46,20 +46,7 @@ public class StudentController {
     }
 
     private void updateStudent() {
-        String name;
-        while (true) {
-            //1 键盘录入需要删除的学生姓名
-            System.out.println("您需要修改的学生姓名");
-            name = sc.next();
-            //2 判断学生姓名是否存在，如果不存在，则需要一直录入
-            boolean exists = studentService.isExists(name);
-            if (!exists) {
-                System.out.println("您输入的学生不存在，请重新输入");
-            } else {
-                break;
-            }
-
-        }
+        String name=improtStudent();
         System.out.println("请输入学生年龄");
         String age = sc.next();
         System.out.println("请输入学生生日");
@@ -70,6 +57,23 @@ public class StudentController {
         //4 提示修改成功
         System.out.println("修改成功");
 
+    }
+
+    private String improtStudent() {
+        String name;
+        while (true) {
+            //1 键盘录入需要删除的学生姓名
+            System.out.println("请输入学生姓名");
+            name = sc.next();
+            //2 判断学生姓名是否存在，如果不存在，则需要一直录入
+            boolean exists = studentService.isExists(name);
+            if (!exists) {
+                System.out.println("您输入的学生不存在，请重新输入");
+            } else {
+                return name;
+            }
+
+        }
     }
 
     public void findAllStudent() {
@@ -126,20 +130,7 @@ public class StudentController {
     }
 
     public void deleteStudentByName() {
-        String name;
-        while (true) {
-            //1 键盘录入需要删除的学生姓名
-            System.out.println("您需要删除的学生姓名");
-            name = sc.next();
-            //2 判断学生姓名是否存在，如果不存在，则需要一直录入
-            boolean exists = studentService.isExists(name);
-            if (!exists) {
-                System.out.println("您输入的学生不存在，请重新输入");
-            } else {
-                break;
-            }
-
-        }
+        String name=improtStudent();
         //3 调用业务员中的deleteStudentByName方法，根据name，一直删除
         studentService.deleteStduentByName(name);
         //4 提示删除成功
