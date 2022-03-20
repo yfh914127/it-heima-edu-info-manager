@@ -1,6 +1,7 @@
 package com.itheima.edu.info.manager.entry;
 
 import com.itheima.edu.info.manager.controller.StudentController;
+import com.itheima.edu.info.manager.controller.TeacherController;
 import com.itheima.edu.info.manager.domain.Student;
 
 import java.util.Scanner;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 public class InfoManagerEntry {
     public static void main(String[] args) {
         StudentController studentController=new StudentController();
+        TeacherController teacherController=new TeacherController();
         Scanner sc=new Scanner(System.in);
         while(true){
             //主菜单搭建
@@ -21,11 +23,11 @@ public class InfoManagerEntry {
                 case "1":
                     /*System.out.println("学生管理");*/
                     //开启学生管理系统的代码逻辑
-
                     studentController.start();
                     break;
                 case "2":
-                    System.out.println("老师管理");
+                    /*System.out.println("老师管理");*/
+                    teacherController.start();
                     break;
                 case "3":
                     System.out.println("感谢您的使用");
