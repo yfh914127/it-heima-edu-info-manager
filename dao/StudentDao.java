@@ -30,4 +30,22 @@ public class StudentDao {
     public Student[] findAllStudent() {
         return students;
     }
+
+    public void deleteSTudentByName(String name) {
+        //1 查找姓名在容器中所在的索引位置
+        int index=getIndex(name);
+        //2 将索引位置，使用null元素进行覆盖
+        students[index]=null;
+    }
+
+    public int getIndex(String name) {
+        int index=-1;
+        for (int i = 0; i < students.length; i++) {
+            Student student=students[i];
+            if(student!=null && student.getName().equals(name)){
+                index=i;
+            }
+        }
+        return index;
+    }
 }

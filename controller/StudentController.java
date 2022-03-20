@@ -6,12 +6,12 @@ import com.itheima.edu.info.manager.service.StudentService;
 import java.util.Scanner;
 
 public class StudentController {
-
+    private Scanner sc=new Scanner(System.in);
     private StudentService studentService=new StudentService();
 
     public void start() {
 
-        Scanner sc=new Scanner(System.in);
+
 
         lo:while(true){
             System.out.println("--------欢迎来到 <学生> 管理系统--------");
@@ -23,7 +23,8 @@ public class StudentController {
                     addStudent();
                     break;
                 case "2":
-                    System.out.println("删除学生");
+                    /*System.out.println("删除学生");*/
+                    deleteStudentByName();
                     break;
                 case "3":
                     System.out.println("修改学生");
@@ -94,5 +95,27 @@ public class StudentController {
         }else{
             System.out.println("添加失败");
         }
+    }
+
+    public void deleteStudentByName() {
+        String name;
+        while(true){
+            //1 键盘录入需要删除的学生姓名
+            System.out.println("您需要删除的学生姓名");
+            name=sc.next();
+            //2 判断学生姓名是否存在，如果不存在，则需要一直录入
+            boolean exists=studentService.isExists(name);
+            if(!exists){
+                System.out.println("您输入的学生不存在，请重新输入");
+            }else{
+                break;
+            }
+
+        }
+        //3 调用业务员中的deleteStudentByName方法，根据name，一直删除
+        studentService.deleteStduentByName(name);
+        //4 提示删除成功
+        System.out.println("删除成功");
+
     }
 }

@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class InfoManagerEntry {
     public static void main(String[] args) {
+        StudentController studentController=new StudentController();
         Scanner sc=new Scanner(System.in);
         while(true){
             //主菜单搭建
@@ -20,7 +21,7 @@ public class InfoManagerEntry {
                 case "1":
                     /*System.out.println("学生管理");*/
                     //开启学生管理系统的代码逻辑
-                    StudentController studentController=new StudentController();
+
                     studentController.start();
                     break;
                 case "2":

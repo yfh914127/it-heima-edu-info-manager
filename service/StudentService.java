@@ -50,4 +50,8 @@ public class StudentService {
             return students;
         }
     }
+
+    public void deleteStduentByName(String name) {
+        studentDao.deleteSTudentByName(name);
+    }
 }
