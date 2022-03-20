@@ -31,4 +31,23 @@ public class StudentService {
         }
         return result;
     }
+
+    public Student[] findAllStudent() {
+        //1.调用库管对象中的findAllStudent获取学生对象数组
+        Student[] students=studentDao.findAllStudent();
+        //2.判断数组中是否有学生信息（有：返回地址，没有：返回null）
+        boolean flag=false;
+        for (int i = 0; i < students.length; i++) {
+            Student student=students[i];
+            if(student!=null){
+                flag=true;
+                break;
+            }
+        }
+        if(flag==false){
+            return null;
+        }else{
+            return students;
+        }
+    }
 }
