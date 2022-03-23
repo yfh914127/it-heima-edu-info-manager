@@ -40,4 +40,8 @@ public class TeacherService {
             return null;
         }
     }
+
+    public void deleteTeacherById(String id) {
+        teacherDao.deleteTeacherById(id);
+    }
 }

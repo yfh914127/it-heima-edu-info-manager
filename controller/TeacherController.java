@@ -25,7 +25,8 @@ public class TeacherController {
                     addTeacher();
                     break;
                 case "2":
-                    System.out.println("删除老师");
+                    /*System.out.println("删除老师");*/
+                    deleteTeacherById();
                     break;
                 case "3":
                     System.out.println("修改老师");
@@ -45,7 +46,30 @@ public class TeacherController {
 
     }
 
-    private void getTeachers() {
+    public void deleteTeacherById() {
+        String id;
+        while(true){
+            //键盘接收要删除的老师id
+            System.out.println("请输入你要删除的老师ID");
+            id=sc.next();
+            //交给业务员判断是否存在这个id
+            boolean exists=teacherService.isExists(id);
+            if(!exists){
+                System.out.println("您输入的id不存在，请重新输入");
+            }else{
+                break;
+            }
+        }
+         //2 调用业务员中的删除方法，根据id删除老师
+        teacherService.deleteTeacherById(id);
+
+        //3 提示删除成功
+        System.out.println("删除成功");
+
+
+    }
+
+    public void getTeachers() {
         Teacher[] teachers=teacherService.getTeachers();
         if(teachers==null){
             System.out.println("暂时没有添加老师");

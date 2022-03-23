@@ -24,4 +24,22 @@ public class TeacherDao {
     public Teacher[] getTeachers() {
         return teachers;
     }
+
+    public void deleteTeacherById(String id) {
+        //查询这个id在数组中的索引位置
+        int index=getIndex(id);
+        //将该索引位置的元素使用null进行替换
+        teachers[index]=null;
+    }
+    public int getIndex(String id){
+        int index=-1;
+        for (int i = 0; i < teachers.length; i++) {
+            Teacher teacher=teachers[i];
+            if(teacher!=null && teacher.getId().equals(id)){
+                index=i;
+                break;
+            }
+        }
+        return index;
+    }
 }
