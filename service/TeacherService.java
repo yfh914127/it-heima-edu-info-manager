@@ -25,4 +25,19 @@ public class TeacherService {
         boolean addtrue=teacherDao.addTeacher(teacher);
         return addtrue;
     }
+
+    public Teacher[] getTeachers() {
+        boolean flag;
+        Teacher[] teachers=teacherDao.getTeachers();
+        if(teachers!=null){
+            flag=true;
+        }else{
+            flag=false;
+        }
+        if(flag){
+            return teachers;
+        }else{
+            return null;
+        }
+    }
 }

@@ -13,6 +13,7 @@ public class TeacherDao {
                 Teacher teacher1=teachers[i];
                 if(teacher1==null){
                     teachers[i]=teacher;
+                    break;
                 }
             }
         }

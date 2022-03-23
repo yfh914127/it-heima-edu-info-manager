@@ -32,6 +32,7 @@ public class TeacherController {
                     break;
                 case "4":
                     /*System.out.println("查看老师");*/
+                     getTeachers();
                     break;
                 case "5":
                     System.out.println("感谢您使用老师管理系统，再见!");
@@ -42,6 +43,22 @@ public class TeacherController {
             }
         }
 
+    }
+
+    private void getTeachers() {
+        Teacher[] teachers=teacherService.getTeachers();
+        if(teachers==null){
+            System.out.println("暂时没有添加老师");
+        }else{
+            System.out.println("学号\t\t姓名\t年龄\t生日");
+            for (int i = 0; i < teachers.length; i++) {
+                Teacher teacher=teachers[i];
+                if(teacher!=null){
+                    System.out.println(teacher.getId()+"\t"+teacher.getName()+"\t"+teacher.getAge()+"\t"+teacher.getBirthday());
+                }
+
+            }
+        }
     }
 
     private void addTeacher() {
