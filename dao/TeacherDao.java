@@ -3,7 +3,9 @@ package com.itheima.edu.info.manager.dao;
 import com.itheima.edu.info.manager.domain.Teacher;
 
 public class TeacherDao {
+
     private static Teacher[] teachers=new Teacher[5];
+
     public boolean addTeacher(Teacher teacher) {
         boolean addtrue=true;
         if(teachers==null){
@@ -31,6 +33,7 @@ public class TeacherDao {
         //将该索引位置的元素使用null进行替换
         teachers[index]=null;
     }
+
     public int getIndex(String id){
         int index=-1;
         for (int i = 0; i < teachers.length; i++) {
@@ -41,5 +44,11 @@ public class TeacherDao {
             }
         }
         return index;
+    }
+
+    public void updateTeacher(Teacher teacher) {
+        int index=getIndex(teacher.getId());
+        teachers[index]=teacher;
+
     }
 }

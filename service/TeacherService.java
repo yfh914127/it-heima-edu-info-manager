@@ -44,4 +44,8 @@ public class TeacherService {
     public void deleteTeacherById(String id) {
         teacherDao.deleteTeacherById(id);
     }
+
+    public void updateTeacher(Teacher teacher) {
+        teacherDao.updateTeacher(teacher);
+    }
 }

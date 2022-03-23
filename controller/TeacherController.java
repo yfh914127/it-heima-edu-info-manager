@@ -29,7 +29,8 @@ public class TeacherController {
                     deleteTeacherById();
                     break;
                 case "3":
-                    System.out.println("修改老师");
+                    /*System.out.println("修改老师");*/
+                    updateTeacher();
                     break;
                 case "4":
                     /*System.out.println("查看老师");*/
@@ -44,6 +45,35 @@ public class TeacherController {
             }
         }
 
+    }
+
+    public void updateTeacher() {
+        String id;
+        while(true){
+            //键盘接收要删除的老师id
+            System.out.println("请输入你要修改的老师ID");
+            id=sc.next();
+            //交给业务员判断是否存在这个id
+            boolean exists=teacherService.isExists(id);
+            if(!exists){
+                System.out.println("您输入的id不存在，请重新输入");
+            }else{
+                break;
+            }
+        }
+        //键盘录入新的老师信息
+        //请输入老师姓名
+        System.out.println("请输入你要修改的老师姓名");
+        String name=sc.next();
+        System.out.println("请输入你要修改的老师年龄");
+        String age=sc.next();
+        System.out.println("请输入你要修改的老师生日");
+        String birthday=sc.next();
+        //封装为新的老师对象
+        Teacher teacher=new Teacher(id,name,age,birthday);
+        //调用业务员的修改方法
+        teacherService.updateTeacher(teacher);
+        System.out.println("修改成功");
     }
 
     public void deleteTeacherById() {
