@@ -13,7 +13,6 @@ public class InfoManagerEntry {
         Scanner sc=new Scanner(System.in);
         while(true){
             //主菜单搭建
-            //表头搭建
             System.out.println("--------欢迎来到黑马信息管理系统--------");
             System.out.println("请输入您的选择: 1.学生管理  2.老师管理  3.退出");
             //选择选项
